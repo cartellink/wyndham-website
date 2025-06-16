@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WyndhamFind - Club Wyndham South Pacific Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MailerLite Universal -->
+    <script>
+      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '1596221');
+    </script>
+    <!-- End MailerLite Universal -->
+     <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .search-mockup {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .button-hover {
+            transition: all 0.3s ease;
+        }
+        .button-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg font-sans">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-6xl w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Column - Content -->
+                <div class="text-white space-y-6 text-center lg:text-left">
+                    <!-- Logo/Brand -->
+                    <div class="inline-flex items-center space-x-2 mb-2">
+                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 6H3V4a1 1 0 011-1h16a1 1 0 011 1v2zm0 2v9a3 3 0 01-3 3H6a3 3 0 01-3-3V8h18zM8 11v2h8v-2H8z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">Club Wyndham South Pacific</span>
+                    </div>
+
+                    <!-- Headlines -->
+                    <div class="space-y-4">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                            Discover Your Next
+                            <span class="block text-yellow-300">Club Wyndham Escape</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-indigo-100 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                            Search Club Wyndham South Pacific resorts across Australia, New Zealand, and Fiji — find your perfect timeshare stay with one simple search.
+                        </p>
+                    </div>
+
+                    <!-- Email Signup -->
+                    <div class="pt-4">
+                        <div class="glass-effect rounded-2xl p-6 max-w-md mx-auto lg:mx-0">
+                            <p class="text-sm text-indigo-100 mb-4 font-medium">
+                                🏖️ Be first to discover Club Wyndham availability
+                            </p>
+                            <!-- MailerLite Form -->
+                            <div class="ml-embedded" data-form="wDsePA"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - App Previews -->
+                <div class="space-y-8 flex flex-col justify-center min-h-[500px] lg:min-h-[600px]">
+                    <!-- Mobile UI Screenshot -->
+                    <div class="mx-auto">
+                        <div class="block cursor-pointer hover:opacity-90 transition-opacity" onclick="openModal('images/search.png')">
+                            <div class="w-64 h-96 rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-200 bg-white">
+                                <img src="images/search.png" 
+                                     alt="WyndhamFind Mobile Search Interface" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <p class="text-center text-white/80 text-sm mt-3 font-medium">Mobile Search (Click to enlarge)</p>
+                    </div>
+
+                    <!-- Desktop UI Screenshot -->
+                    <div class="mx-auto">
+                        <div class="block cursor-pointer hover:opacity-90 transition-opacity" onclick="openModal('images/grid.png')">
+                            <div class="w-full max-w-lg h-64 rounded-2xl shadow-2xl overflow-hidden border-4 border-gray-200 bg-white">
+                                <img src="images/grid.png" 
+                                     alt="WyndhamFind Desktop Grid View" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <p class="text-center text-white/80 text-sm mt-3 font-medium">Desktop Results (Click to enlarge)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Enlarged view">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
